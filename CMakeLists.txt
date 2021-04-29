@@ -1,18 +1,20 @@
-cmake_minimum_required(VERSION 3.15...3.19)
+cmake_minimum_required(VERSION 3.15...3.20)
 
 # +---------------+
-# | Project setup | 
+# | Project setup |
 # +---------------+
 
 project(
-  my_proj
+  thinky
   VERSION 0.1.0
-  DESCRIPTION "Fill me in"
-  HOMEPAGE_URL "Fill me in"
+  DESCRIPTION "Playing around with a neural network and genetic algorithm"
+  HOMEPAGE_URL "https://github.com/rufus-stone/genetic-algo-cpp"
   LANGUAGES CXX)
 
 # Create our executable
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(
+  ${PROJECT_NAME} src/main.cpp src/neural_network/nn.cpp
+                  src/neural_network/layer.cpp src/neural_network/neuron.cpp)
 
 # We're using C++17
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
@@ -25,9 +27,8 @@ else()
                                                  -Wold-style-cast -Wpedantic)
 endif()
 
-
 # +--------------+
-# | Dependencies | 
+# | Dependencies |
 # +--------------+
 
 # Conan scripts
@@ -43,9 +44,8 @@ target_include_directories(${PROJECT_NAME}
 # Link libraries to executable
 target_link_libraries(${PROJECT_NAME} PRIVATE CONAN_PKG::spdlog)
 
-
 # +-------+
-# | Tests | 
+# | Tests |
 # +-------+
 
 # Enable testing

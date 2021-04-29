@@ -1,10 +1,10 @@
 #pragma once
 
-namespace example
+namespace ga
 {
 
 inline void do_thing()
 {
 }
 
-} // namespace example
+} // namespace ga
