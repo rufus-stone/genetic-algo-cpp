@@ -12,9 +12,7 @@ project(
   LANGUAGES CXX)
 
 # Create our executable
-add_executable(
-  ${PROJECT_NAME} src/main.cpp src/neural_network/nn.cpp
-                  src/neural_network/layer.cpp src/neural_network/neuron.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
 
 # We're using C++17
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
@@ -41,8 +39,11 @@ conan_cmake_run(REQUIRES spdlog/1.8.2 BASIC_SETUP CMAKE_TARGETS BUILD missing)
 target_include_directories(${PROJECT_NAME}
                            PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
+# Add the neural network and genetic algorithm libraries
+add_subdirectory(libs/neuro)
+
 # Link libraries to executable
-target_link_libraries(${PROJECT_NAME} PRIVATE CONAN_PKG::spdlog)
+target_link_libraries(${PROJECT_NAME} PRIVATE CONAN_PKG::spdlog neuro::neuro)
 
 # +-------+
 # | Tests |

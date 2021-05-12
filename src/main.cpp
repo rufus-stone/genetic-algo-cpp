@@ -1,11 +1,10 @@
 #include <random>
 #include <spdlog/spdlog.h>
 
-#include "neural_network/layer_topology.hpp"
-#include "neural_network/nn.hpp"
-#include "genetic_algorithm/ga.hpp"
-#include "utils/prng.hpp"
-#include "utils/debugging.hpp"
+#include <neuro/layer_topology.hpp>
+#include <neuro/nn.hpp>
+#include <neuro/utils/prng.hpp>
+#include <neuro/utils/debugging.hpp>
 
 
 int main()
