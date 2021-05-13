@@ -16,7 +16,8 @@ message("Configuring ${PROJECT_NAME}...")
 include(GNUInstallDirs)
 
 # Set source files
-set(SOURCE_FILES src/ga.cpp src/individual.cpp src/chromosome.cpp)
+set(SOURCE_FILES src/ga.cpp src/chromosome.cpp src/individual.cpp
+                 src/population.cpp src/selection.cpp src/crossover.cpp)
 
 # Create the library
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES})

@@ -10,6 +10,11 @@ namespace utils
 
 inline auto to_string(std::vector<double> const &input) -> std::string
 {
+  if (input.empty())
+  {
+    return "[]";
+  }
+
   auto ss = std::stringstream{};
 
   ss << "[";
