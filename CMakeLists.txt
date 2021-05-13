@@ -41,6 +41,7 @@ target_include_directories(${PROJECT_NAME}
 
 # Add the neural network and genetic algorithm libraries
 add_subdirectory(libs/neuro)
+add_subdirectory(libs/evolvo)
 
 # Link libraries to executable
 target_link_libraries(${PROJECT_NAME} PRIVATE CONAN_PKG::spdlog neuro::neuro)
