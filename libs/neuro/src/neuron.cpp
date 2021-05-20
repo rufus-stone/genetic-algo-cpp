@@ -40,12 +40,12 @@ auto Neuron::propagate(std::vector<double> const &inputs) -> double
   }
 
   // Take each input, multiply it by the corresponding weight, and sum all the results together
-  // let output = inputs.iter().zip(&self.weights).map(| (input, weight) | input * weight).sum::<f32>();
   auto multiplied = std::vector<double>{};
   std::transform(std::begin(inputs), std::end(inputs), std::begin(this->m_weights), std::back_inserter(multiplied), std::multiplies{});
   double output = std::accumulate(std::begin(multiplied), std::end(multiplied), 0.0);
 
-  return output;
+  // Finally, add the bias to the sum, and return whichever is the bigger of that value or 0.0
+  return std::max(this->m_bias + output, 0.0);
 }
 
 
@@ -61,4 +61,3 @@ auto Neuron::weights() const -> std::vector<double> const &
 
 
 } // namespace nn
-  //
